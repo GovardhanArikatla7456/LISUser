@@ -1,0 +1,43 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Data Table</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'userinput/confirmation.css' %}">
+</head>
+<body>
+
+<h1>Confirmation Page</h1>
+<h2>New Entry:</h2>
+<p>Name: {{ entries.last.name }}</p>
+<p>Age: {{ entries.last.age }}</p>
+<p>Title: {{ entries.last.title }}</p>
+<p>Hometown: {{ entries.last.hometown }}</p>
+
+<h2>Previous Entries:</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Title</th>
+            <th>Hometown</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for entry in entries %}
+        <tr>
+            <td>{{ entry.name }}</td>
+            <td>{{ entry.age }}</td>
+            <td>{{ entry.title }}</td>
+            <td>{{ entry.hometown }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+</body>
+</html>

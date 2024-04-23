@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Input</title>
+    <link rel="stylesheet" type="text/css" href="{% static "userinput/form.css" %}">
+</head>
+<body>
+    <form method="post" class="my-form">
+        <div class = "heading">
+            <h1> Enter your information</h1>
+        </div>
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="id_name">Name:</label>
+            {{ form.name }}
+        </div>
+        <div class="form-group">
+            <label for="id_age">Age:</label>
+            {{ form.age }}
+        </div>
+        <div class="form-group">
+            <label for="id_title">Title:</label>
+            {{ form.title }}
+        </div>
+        <div class="form-group">
+            <label for="id_hometown">Hometown:</label>
+            {{ form.hometown }}
+        </div>
+        <button type="submit" class="submit-button">Submit</button>
+    </form>
+</body>
+</html>

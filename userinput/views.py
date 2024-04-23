@@ -1,0 +1,19 @@
+from django.shortcuts import render, redirect
+
+# Create your views here.
+from .forms import EntryForm
+from .models import User
+
+def form_view(request):
+    if request.method == 'POST':
+        form = EntryForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('confirmation')
+    else:
+        form = EntryForm()
+    return render(request, 'userinput/form.html', {'form': form})
+
+def confirmation_view(request):
+    entries = User.objects.all()
+    return render(request, 'userinput/confirmation.html', {'entries': entries})
